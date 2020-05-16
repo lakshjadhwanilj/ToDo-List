@@ -13,5 +13,5 @@ You can try the web app at: https://polar-retreat-24805.herokuapp.com/ <br />
    * JavaScript
    * Node.js
    * Express JS & EJS
-   * MongoDB Atlas (Database)
+   * MongoDB Atlas (Database) & Mongoose
    * Heroku (Hosting)
