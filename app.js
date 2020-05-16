@@ -4,6 +4,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const lodash = require("lodash");
+const date = require(__dirname + "/date.js");
 
 const app = express();
 
@@ -47,6 +48,7 @@ const listSchema = new mongoose.Schema({
 const List = mongoose.model('List', listSchema);
 
 app.get("/", function (req, res) {
+    const day = date.getDate();
     // Reading items to our app
     Item.find({}, function (err, foundItems) {
         if (foundItems.length === 0) {
@@ -61,7 +63,7 @@ app.get("/", function (req, res) {
             res.redirect('/');
         } else {
             res.render("list", {
-                listTitle: 'Today',
+                listTitle: day,
                 listItems: foundItems
             });
         }
