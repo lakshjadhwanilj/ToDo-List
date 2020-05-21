@@ -103,7 +103,7 @@ app.post("/", function (req, res) {
         name: itemName
     });
 
-    if (listName === 'Today') {
+    if (listName === date.getDate()) {
         // Default list
         item.save();
         res.redirect('/');
@@ -123,7 +123,7 @@ app.post("/", function (req, res) {
 app.post("/delete", function (req, res) {
     const checkedItemId = req.body.checkbox;
     const listName = req.body.listName;
-    if (listName === 'Today') {
+    if (listName === date.getDate()) {
         // Default list
         Item.findByIdAndRemove(checkedItemId, function (err) {
             if (err) {
